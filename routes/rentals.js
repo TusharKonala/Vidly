@@ -48,6 +48,8 @@ router.post("/", async (req, res) => {
   });
 
   session.endSession();
+
+  res.send(rental);
 });
 
 router.get("/:id", async (req, res) => {
