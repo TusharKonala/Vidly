@@ -1,4 +1,6 @@
 const error = require("./middleware/error");
+const winston = require("winston");
+require("winston-mongodb");
 const config = require("config");
 const Joi = require("joi");
 Joi.objectId = require("joi-objectid")(Joi);
@@ -11,6 +13,25 @@ const rentals = require("./routes/rentals");
 const users = require("./routes/users");
 const auth = require("./routes/auth");
 const mongoose = require("mongoose");
+
+process.on("uncaughtException", (ex) => {
+  console.log("WE GOT AN UNCAUGHT EXCEPTION");
+  winston.error(ex.message, ex);
+});
+
+winston.add(
+  new winston.transports.File({
+    filename: "logfile.log",
+  })
+);
+winston.add(
+  new winston.transports.MongoDB({
+    db: "mongodb://localhost/vidly",
+    level: "error",
+  })
+);
+
+// throw new Error("Something failed during startup...");
 
 if (!config.get("jwtPrivateKey")) {
   console.error("FATAL ERROR: jwtPrivateKey is not defined.");
