@@ -5,7 +5,7 @@ const movies = require("../routes/movies");
 const rentals = require("../routes/rentals");
 const users = require("../routes/users");
 const auth = require("../routes/auth");
-const error = require("./middleware/error");
+const error = require("../middleware/error");
 
 module.exports = function (app) {
   app.use(express.json());
