@@ -3,9 +3,9 @@ require("winston-mongodb");
 
 module.exports = function () {
   winston.rejections.handle(
-    new winston.transports.Console({
-      format: winston.format.combine(winston.format.colorize({ all: true })),
-    }),
+    // new winston.transports.Console({
+    //   format: winston.format.combine(winston.format.colorize({ all: true })),
+    // }),
     new winston.transports.File({ filename: "uncaughtRejections.log" })
   );
   // handles uncaught rejected promises
@@ -36,6 +36,7 @@ module.exports = function () {
   });
 
   process.on("unhandledRejection", (ex) => {
+    console.log("WE GOT A REJECTED PROMISE");
     //used timeout so that we can allow winston to log the rejected promise
     setTimeout(() => process.exit(1), 200);
   });
