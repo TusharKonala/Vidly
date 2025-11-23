@@ -11,5 +11,11 @@
     "mongoose": "^8.19.4",
     "winston": "^3.18.3",
     "winston-mongodb": "^7.0.1"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  },
+  "scripts": {
+    "test": "jest --watchAll"
   }
 }
