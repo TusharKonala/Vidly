@@ -16,6 +16,6 @@
     "jest": "^30.2.0"
   },
   "scripts": {
-    "test": "jest --watchAll"
+    "test": "jest --watchAll --verbose"
   }
 }

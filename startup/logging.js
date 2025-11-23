@@ -1,5 +1,5 @@
 const winston = require("winston");
-require("winston-mongodb");
+// require("winston-mongodb");
 
 module.exports = function () {
   winston.rejections.handle(
@@ -21,12 +21,12 @@ module.exports = function () {
     })
   );
 
-  winston.add(
-    new winston.transports.MongoDB({
-      db: "mongodb://localhost/vidly",
-      level: "error",
-    })
-  );
+  // winston.add(
+  //   new winston.transports.MongoDB({
+  //     db: "mongodb://localhost/vidly",
+  //     level: "error",
+  //   })
+  // );
 
   process.on("uncaughtException", (ex) => {
     console.log("WE GOT AN UNCAUGHT EXCEPTION");
