@@ -20,20 +20,21 @@ It provides secure authentication, authorization, RESTful APIs, input validation
 
 ## Tech Stack
 
-| Category | Technologies |
-|----------|-------------|
-| Language | JavaScript (Node.js) |
-| Framework | Express.js |
-| Database | MongoDB + Mongoose |
-| Authentication | JWT + bcrypt |
-| Validation | Joi |
-| Logging | Winston |
-| Testing | Jest |
+| Category | Technologies           |
+|----------|------------------------|
+| Language | JavaScript (Node.js)   |
+| Framework | Express.js            |
+| Database | MongoDB + Mongoose     |
+| Authentication | JWT + bcrypt     |
+| Validation | Joi                  |
+| Logging | Winston                 |
+| Testing | Jest                    |
 
 ---
 
 ## API Base URL
-vidly-brtq.onrender.com
+
+    vidly-brtq.onrender.com
 
 Best tested using Postman.  
 Note: Render free tier may take 20–30 seconds to spin up if inactive.
@@ -45,23 +46,61 @@ Note: Render free tier may take 20–30 seconds to spin up if inactive.
 Follow the steps below to run the project locally.
 
 ### 1. Clone the repository
-git clone <your-github-repo-link>
-cd vidly
 
-### 2. Install depencies
-npm install
+    git clone <your-github-repo-link>
+    cd vidly
 
-### 3. Configure environment variables
-jwtPrivateKey=<your-secret-key>
-dbUrl=<your-mongodb-url>
+### 2. Install dependencies
 
-### 3. Start the server
-npm start
+    npm install
 
-### Optional
-Run automated test: npm test
+### 3. Configure environment variables 
 
+    vidly_jwtPrivateKey=<your-secret-key>
+    vidly_db=<your-mongodb-url>
 
+(Example: `dbUrl=mongodb://localhost/vidly`)
 
+### 4. Start the server
 
+    npm start
 
+### Optional — Run automated tests
+
+    npm test
+
+---
+
+## Project Structure
+
+    vidly
+    ├── models/        # Mongoose schemas
+    ├── routes/        # API routes
+    ├── middleware/    # Auth, error handlers, etc.
+    ├── tests/         # Jest test cases
+    ├── startup/       # Logging, DB, routes config
+    ├── index.js       # Application entry point
+    └── README.md
+
+---
+
+## API Endpoints (Examples)
+
+| Method | Endpoint        | Description            |
+|--------|-----------------|------------------------|
+| POST   | /api/users      | Register a new user    |
+| POST   | /api/auth       | Login user             |
+| GET    | /api/genres     | Get all genres         |
+| POST   | /api/genres     | Create a new genre     |
+| GET    | /api/movies     | Get all movies         |
+| POST   | /api/rentals    | Create a rental        |
+| POST   | /api/returns    | Process movie return   |
+
+---
+
+## Tools Recommended for Testing
+
+• Postman  
+• MongoDB Compass
+
+---
