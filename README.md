@@ -52,8 +52,8 @@ cd vidly
 npm install
 
 ### 3. Configure environment variables
-vidly_jwtPrivateKey = <your-secret-key>
-vidly_db = <your-db-connection-string>
+jwtPrivateKey=<your-secret-key>
+dbUrl=<your-mongodb-url>
 
 ### 3. Start the server
 npm start
